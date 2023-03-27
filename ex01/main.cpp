@@ -11,8 +11,8 @@ int main(int ac, char** av) {
 	std::cout << item << std::endl;
 	item = strtok(equation, " ");
 	std::cout << item << std::endl;
-	// while ((item = strtok(equation, " "))) {
-		// std::cout << item << std::endl;
-	// }
-	
+	while ((item = strtok(equation, " "))) {
+		std::cout << item << std::endl;
+	}
+
 }
