@@ -1,4 +1,4 @@
-#include "Btc.hpp"
+#include " BitcoinExchange.hpp"
 
 Btc::Btc(){}
 
