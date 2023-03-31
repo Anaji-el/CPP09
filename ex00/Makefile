@@ -1,4 +1,4 @@
-NAME = BitcoinExchange
+NAME = btc
 
 SRC = BitcoinExchange.cpp main.cpp
 
