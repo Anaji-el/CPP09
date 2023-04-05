@@ -2,9 +2,22 @@
 # define PMEREME_HPP
 
 #include <iostream>
-#include <string>
+#include <vector>
+#include <deque>
+#include <list>
+#include <algorithm>
+#include <sys/time.h>
+#include <unistd.h>
 
-class PmergeMe{
-
+class PmergeMe
+{
+private:
+    // your private members here
+public:
+    PmergeMe();
+    PmergeMe(const PmergeMe &a);
+    ~PmergeMe();
+    PmergeMe &operator=(const PmergeMe &a);
 };
+
 #endif
