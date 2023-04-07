@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PmergeMe.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: anaji-el <anaji-el@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/07 15:32:18 by anaji-el          #+#    #+#             */
+/*   Updated: 2023/04/07 16:19:55 by anaji-el         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "PmergeMe.hpp"
 
 std::pair<int, std::string> make_int_string_pair(int x, const std::string &s)
@@ -5,12 +17,15 @@ std::pair<int, std::string> make_int_string_pair(int x, const std::string &s)
 	return std::make_pair(x, s);
 }
 
-std::vector<int> _vector(int ac, char *av[], std::vector<std::pair<unsigned int, unsigned int>  > &container,
-					std::vector<unsigned int> &cont, std::vector<unsigned int> &conta)
+PmergeMe::PmergeMe(): flag(false) {}
+
+PmergeMe::~PmergeMe() {}
+
+void PmergeMe::_vector(int ac, std::vector<std::pair<unsigned int, unsigned int> > &container,
+					std::vector<unsigned int> &cont, std::vector<unsigned int> &conta, unsigned int tmp)
 {
 	clock_t start_time, end;
 	double diff;
-	unsigned int tmp;
 
 	start_time = clock();
 	for (size_t i = 0; i < container.size(); i++)
@@ -29,7 +44,7 @@ std::vector<int> _vector(int ac, char *av[], std::vector<std::pair<unsigned int,
 
 	for (size_t i = 0; i < cont.size(); i++)
 		conta.insert(std::lower_bound(begin(conta), conta.end(), cont[i]), cont[i]);
-	if (false)
+	if (flag)
 		conta.insert(std::lower_bound(conta.begin(), conta.end(), tmp), tmp);
 	std::cout << "\nAfter : ";
 
@@ -43,12 +58,11 @@ std::vector<int> _vector(int ac, char *av[], std::vector<std::pair<unsigned int,
 			  << std::endl;
 }
 
-std::deque<int> _deque(int ac, char *av[], std::deque<std::pair<unsigned int, unsigned int> > &container,
-					std::deque<unsigned int> &cont, std::deque<unsigned int> &conta)
+void PmergeMe::_deque(int ac, std::deque<std::pair<unsigned int, unsigned int> > &container,
+					  std::deque<unsigned int> &cont, std::deque<unsigned int> &conta, unsigned int tmp)
 {
 	clock_t start_time, end;
 	double diff;
-	unsigned int tmp;
 
 	start_time = clock();
 	for (size_t i = 0; i < container.size(); i++)
@@ -67,7 +81,7 @@ std::deque<int> _deque(int ac, char *av[], std::deque<std::pair<unsigned int, un
 
 	for (size_t i = 0; i < cont.size(); i++)
 		conta.insert(std::lower_bound(begin(conta), conta.end(), cont[i]), cont[i]);
-	if (false)
+	if (flag)
 		conta.insert(std::lower_bound(conta.begin(), conta.end(), tmp), tmp);
 	// std::cout << "\nAfter : ";
 

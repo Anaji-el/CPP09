@@ -2,11 +2,11 @@ NAME = PmergeMe
 
 SRC = PmergeMe.cpp main.cpp
 
-HEADER = RPmergeMe.hpp
+HEADER = PmergeMe.hpp
 
 OBJECT = $(SRC:%.cpp=%.o)
 
-FLAGS = -Wall -Wextra -Werror -std=c++98
+FLAGS = -Wall -Wextra -Werror -g -std=c++98
 
 all: $(NAME)
 

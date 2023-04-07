@@ -8,8 +8,8 @@
             "type": "lldb",
             "request": "launch",
             "name": "Debug",
-            "program": "${workspaceFolder}/ex00/btc",
-            "args": ["ex00/input.txt"],
+            "program": "${workspaceFolder}/ex02/PmergeMe",
+            "args": ["2", "1", "3", "5", "9"],
             "cwd": "${workspaceFolder}"
         }
     ]

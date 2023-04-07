@@ -11,7 +11,10 @@ std::string removeSpaces(std::string str)
 int main(int ac, char **av)
 {
 	if (ac != 2)
-		std::cerr << "invalid arguments" << std::endl;
+	{
+		std::cout << "invalid arguments" << std::endl;
+		return 0;
+	}
 	std::string trimmed = removeSpaces(av[1]);
 	std::stack<int> stack;
 	for (size_t i = 0; i < trimmed.length(); i++)
@@ -23,7 +26,7 @@ int main(int ac, char **av)
 		{
 			if (stack.size() < 2)
 			{
-				std::cerr << "Not enough numbers" << std::endl;
+				std::cout << "Not enough numbers" << std::endl;
 				exit(1);
 			}
 			int first = stack.top();
@@ -36,6 +39,11 @@ int main(int ac, char **av)
 				stack.push(second * first);
 				break;
 			case '/':
+				if(first == 0)
+				{
+					std::cout << "can't divide on Zero" << std::endl;
+					return 0;
+				}
 				stack.push(second / first);
 				break;
 			case '+':
@@ -48,7 +56,7 @@ int main(int ac, char **av)
 		}
 		else
 		{
-			std::cerr << "Wrong character" << std::endl;
+			std::cout << "Wrong character" << std::endl;
 			exit(1);
 		}
 	}
