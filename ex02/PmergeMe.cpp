@@ -6,16 +6,11 @@
 /*   By: anaji-el <anaji-el@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 15:32:18 by anaji-el          #+#    #+#             */
-/*   Updated: 2023/04/07 16:19:55 by anaji-el         ###   ########.fr       */
+/*   Updated: 2023/04/08 05:09:00 by anaji-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
-
-std::pair<int, std::string> make_int_string_pair(int x, const std::string &s)
-{
-	return std::make_pair(x, s);
-}
 
 PmergeMe::PmergeMe(): flag(false) {}
 
@@ -44,10 +39,10 @@ void PmergeMe::_vector(int ac, std::vector<std::pair<unsigned int, unsigned int>
 
 	for (size_t i = 0; i < cont.size(); i++)
 		conta.insert(std::lower_bound(begin(conta), conta.end(), cont[i]), cont[i]);
+		std::cout << "\n"<< cont.size() <<"HEELLO" << std::endl;
 	if (flag)
 		conta.insert(std::lower_bound(conta.begin(), conta.end(), tmp), tmp);
 	std::cout << "\nAfter : ";
-
 	for (size_t i = 0; i < conta.size(); i++)
 		std::cout << conta[i] << " ";
 	std::cout << std::endl;
@@ -55,7 +50,7 @@ void PmergeMe::_vector(int ac, std::vector<std::pair<unsigned int, unsigned int>
 	end = clock();
 	diff = double(end - start_time) / 1000;
 	std::cout << "Time to process a range of " << ac << " elements with v : " << diff << " us"
-			  << std::endl;
+			<< std::endl;
 }
 
 void PmergeMe::_deque(int ac, std::deque<std::pair<unsigned int, unsigned int> > &container,

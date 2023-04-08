@@ -1,12 +1,16 @@
-#include <iostream>
-#include <stack>
-#include <cstdlib>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: anaji-el <anaji-el@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/08 05:49:58 by anaji-el          #+#    #+#             */
+/*   Updated: 2023/04/08 05:49:59 by anaji-el         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-std::string removeSpaces(std::string str)
-{
-	str.erase(std::remove(str.begin(), str.end(), ' '), str.end());
-	return str;
-}
+#include "RPN.hpp"
 
 int main(int ac, char **av)
 {

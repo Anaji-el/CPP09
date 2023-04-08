@@ -6,7 +6,7 @@
 /*   By: anaji-el <anaji-el@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 17:29:54 by anaji-el          #+#    #+#             */
-/*   Updated: 2023/04/07 17:43:28 by anaji-el         ###   ########.fr       */
+/*   Updated: 2023/04/08 09:06:53 by anaji-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ bool Btc::is_valid(const std::string &str)
 				continue;
 			if ((!isdigit(str[i]) && str[i] != '-') || (str.find(".") != str.rfind(".")))
 				return false;
-			// if (!(isdigit(str[i]) && str[i] != '.' && str[i] != '-') || (str.find(".") != str.rfind(".")))
 		}
 	}
 	return true;
@@ -92,7 +91,6 @@ bool Btc::data_(int year, int month, int day)
 void Btc::get_date(std::string line, std::map<std::string, double> &data)
 {
 	std::string trimmed = remove_spaces(line);
-	// std::cout << trimmed << std::endl;
 	std::map<std::string, double>::iterator it;
 	if (!is_valid(trimmed))
 		std::cerr << "Error" << std::endl;
@@ -102,7 +100,7 @@ void Btc::get_date(std::string line, std::map<std::string, double> &data)
 		int year = std::atof((trimmed.substr(0, 4).c_str()));
 		int month = std::atof((trimmed.substr(5, 2).c_str()));
 		int day = std::atof((trimmed.substr(8, 2).c_str()));
-		int len = trimmed.length() + trimmed.find('|') + 1;
+		int len = trimmed.length() - trimmed.find('|') - 1;
 		if (trimmed.find('|') != ULONG_MAX)
 			value = std::atof((trimmed.substr(trimmed.find('|') + 1, len).c_str()));
 		std::string date = trimmed.substr(0, trimmed.find('|'));
@@ -125,8 +123,6 @@ void Btc::get_date(std::string line, std::map<std::string, double> &data)
 				it = data.lower_bound(date);
 				it--;
 			}
-			// std::cout << it->first << " => " << value << " = " << it->second * value << std::endl;
-			// std::cout << trimmed.substr(0, trimmed.find('|')) << "\n"<< "The lowest bound is: " << it->second << std::endl;
 			std::cout << date << " => " << value << " = " << it->second * value << std::endl;
 		}
 	}

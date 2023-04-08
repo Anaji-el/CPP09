@@ -6,7 +6,7 @@
 /*   By: anaji-el <anaji-el@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 02:09:14 by anaji-el          #+#    #+#             */
-/*   Updated: 2023/04/07 16:59:42 by anaji-el         ###   ########.fr       */
+/*   Updated: 2023/04/08 05:27:24 by anaji-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ bool isValid(char *av1)
 {
 	if (!isdigit(*av1) || std::atoi(av1) < 0)
 	{
-		std::cerr << "Error\n";
+		std::cout << "Error" << std::endl;
 		exit(0);
 	}
 	return true;

@@ -6,7 +6,7 @@
 /*   By: anaji-el <anaji-el@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 13:09:03 by anaji-el          #+#    #+#             */
-/*   Updated: 2023/04/07 17:39:06 by anaji-el         ###   ########.fr       */
+/*   Updated: 2023/04/08 07:52:00 by anaji-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,23 @@ std::map<std::string, double> read_data()
 	std::map<std::string, double> data;
 	std::string filename = "data.csv";
 	std::ifstream file(filename);
-
+	double value;
 	if (!file)
+	{
 		std::cerr << "cannot open this file!" << filename << std::endl;
-
+		exit(1);
+	}
 	while (std::getline(file, filename))
 	{
 		char *p = std::strtok(&filename[0], ",");
 		std::string key(p);
 		p = std::strtok(NULL, ",");
-		double value = std::atof(p);
-		data.insert(std::pair<std::string, double>(key, value));
+		if(p)
+			value = std::atof(p);
+		data[key] = value;
 	}
 	return (data);
 }
-
 
 int main(int ac, char **av)
 {
